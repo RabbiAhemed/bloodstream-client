@@ -1,34 +1,108 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 const SearchDonor = () => {
   return (
     <div className="my-5">
       <h1 className="fw-bold text-center">Search Donors</h1>
-      <Form.Group className="mb-3 mx-5 px-5 w-50">
-        <label className="text-muted">Choose account type</label>
-        <Form.Select
-          required
-          aria-label="Default select example"
-          name="options"
-        >
-          <option value="buyer">select</option>
-          <option value="buyer">Buyer</option>
-          <option value="seller">Seller</option>
-        </Form.Select>
-      </Form.Group>
-
-      <select name="form_fields[blood_group]" id="" class="">
-        <option value=" ">Select</option>
-        <option value="A+">A+</option>
-        <option value="A-">A-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>{" "}
-      </select>
+      <Form className="mx-auto w-50">
+        <Form.Group className="mb-3">
+          <label className="text-muted">Blood Group</label>
+          <Form.Select
+            required
+            aria-label="Default select example"
+            name="options"
+          >
+            <option value=" ">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <label className="text-muted">District</label>
+          <Form.Select
+            required
+            aria-label="Default select example"
+            name="options"
+          >
+            <option value="">Select</option>
+            <option value="Bagerhat">Bagerhat</option>
+            <option value="Bandarban">Bandarban</option>
+            <option value="Barguna">Barguna</option>
+            <option value="Barisal">Barisal</option>
+            <option value="Bhola">Bhola</option>
+            <option value="Bogra">Bogra</option>
+            <option value="Brahmanbaria">Brahmanbaria</option>
+            <option value="Chandpur">Chandpur</option>
+            <option value="Chapainawabganj">Chapainawabganj</option>
+            <option value="Chittagong">Chittagong</option>
+            <option value="Chuadanga">Chuadanga</option>
+            <option value="Comilla">Comilla</option>
+            <option value="Cox's Bazar">Cox's Bazar</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Dinajpur">Dinajpur</option>
+            <option value="Faridpur">Faridpur</option>
+            <option value="Feni">Feni</option>
+            <option value="Gaibandha">Gaibandha</option>
+            <option value="Gazipur">Gazipur</option>
+            <option value="Gopalganj">Gopalganj</option>
+            <option value="Habiganj">Habiganj</option>
+            <option value="Jamalpur">Jamalpur</option>
+            <option value="Jessore">Jessore</option>
+            <option value="Jhalokati">Jhalokati</option>
+            <option value="Jhenaidah">Jhenaidah</option>
+            <option value="Joypurhat">Joypurhat</option>
+            <option value="Khagrachari">Khagrachari</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Kishoreganj">Kishoreganj</option>
+            <option value="Kurigram">Kurigram</option>
+            <option value="Kushtia">Kushtia</option>
+            <option value="Lakshmipur">Lakshmipur</option>
+            <option value="Lalmonirhat">Lalmonirhat</option>
+            <option value="Madaripur">Madaripur</option>
+            <option value="Magura">Magura</option>
+            <option value="Manikganj">Manikganj</option>
+            <option value="Meherpur">Meherpur</option>
+            <option value="Moulvibazar">Moulvibazar</option>
+            <option value="Munshiganj">Munshiganj</option>
+            <option value="Mymensingh">Mymensingh</option>
+            <option value="Naogaon">Naogaon</option>
+            <option value="Narail">Narail</option>
+            <option value="Narayanganj">Narayanganj</option>
+            <option value="Narsingdi">Narsingdi</option>
+            <option value="Natore">Natore</option>
+            <option value="Netrokona">Netrokona</option>
+            <option value="Nilphamari">Nilphamari</option>
+            <option value="Noakhali">Noakhali</option>
+            <option value="Pabna">Pabna</option>
+            <option value="Panchagarh">Panchagarh</option>
+            <option value="Patuakhali">Patuakhali</option>
+            <option value="Pirojpur">Pirojpur</option>
+            <option value="Rajbari">Rajbari</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Rangamati">Rangamati</option>
+            <option value="Rangpur">Rangpur</option>
+            <option value="Satkhira">Satkhira</option>
+            <option value="Shariatpur">Shariatpur</option>
+            <option value="Sherpur">Sherpur</option>
+            <option value="Sirajganj">Sirajganj</option>
+            <option value="Sunamganj">Sunamganj</option>
+            <option value="Sylhet">Sylhet</option>
+            <option value="Tangail">Tangail</option>
+            <option value="Thakurgaon">Thakurgaon</option>
+            <option value=""></option>
+          </Form.Select>
+          <Button variant="danger" type="submit" className="my-4">
+            Submit
+          </Button>
+        </Form.Group>
+      </Form>
     </div>
   );
 };
