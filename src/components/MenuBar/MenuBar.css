@@ -1,7 +1,15 @@
-#main-logo{
-    font-family: 'Comfortaa', cursive;
-    color: red;
-    font-size: 2em;
-    font-weight: bold;
+#menu {
+  /* background-image: url("../../5861906.jpg"); */
+  background-color: #fdd0d8;
+}
+#main-logo {
+  font-family: "Comfortaa", cursive;
+  color: red;
+  font-size: 2em;
+  font-weight: bold;
+}
 
+#right-links a {
+  text-decoration: none;
+  color: red;
 }

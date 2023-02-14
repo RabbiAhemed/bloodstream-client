@@ -1,9 +1,12 @@
 import React from "react";
+import HeroSection from "../../components/HeroSection/HeroSection";
+import SearchDonor from "../../components/SearchDonor/SearchDonor";
 
 const Home = () => {
   return (
     <div>
-      <h1>home</h1>
+      <HeroSection></HeroSection>
+      <SearchDonor></SearchDonor>
     </div>
   );
 };
