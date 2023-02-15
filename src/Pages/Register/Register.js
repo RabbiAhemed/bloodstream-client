@@ -1,21 +1,25 @@
 import React from "react";
+import "./Register.css";
 import { Button, Form } from "react-bootstrap";
-
-const SearchDonor = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const bloodGroup = form.bloodGroup.value;
-    const district = form.district.value;
-    console.log(bloodGroup, district);
-    form.reset();
-  };
+import { Link } from "react-router-dom";
+const Register = () => {
   return (
-    <div className="my-5">
-      <h3 className="fw-bold text-center text-danger">Search Donors</h3>
-      <Form className="mx-auto w-50 fw-bold" onSubmit={handleSubmit}>
+    <div>
+      <h2 className="text-center mt-5 fw-bold text-black" id="be-a-hero">
+        be a hero
+      </h2>
+      <Form className="mx-auto w-50 fw-bold">
+        <label className="text-muted">Name *</label>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Control
+            required
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+          />
+        </Form.Group>
         <Form.Group className="mb-3">
-          <label className="text-muted">Blood Group</label>
+          <label className="text-muted">Blood Group *</label>
           <Form.Select
             required
             aria-label="Default select example"
@@ -33,11 +37,12 @@ const SearchDonor = () => {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3">
-          <label className="text-muted">District</label>
+          <label className="text-muted">District *</label>
           <Form.Select
             // required
             aria-label="Default select example"
             name="district"
+            className="mb-3"
           >
             <option value="">Select</option>
             <option value="Bagerhat">Bagerhat</option>
@@ -105,13 +110,39 @@ const SearchDonor = () => {
             <option value="Tangail">Tangail</option>
             <option value="Thakurgaon">Thakurgaon</option>
           </Form.Select>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <label className="text-muted">Email address *</label>
+            <Form.Control
+              required
+              type="email"
+              name="email"
+              placeholder="Enter email"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <label className="text-muted">Password *</label>
+            <Form.Control
+              required
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </Form.Group>
           <Button variant="danger" type="submit" className="my-4 fw-bold">
-            Search
+            Register
           </Button>
+          <p className="small fw-bold mt-2 pt-1 mb-0">
+            Already Registered?
+            <Link to="/login" className="link-success">
+              Login
+            </Link>
+          </p>
         </Form.Group>
       </Form>
     </div>
   );
 };
 
-export default SearchDonor;
+export default Register;

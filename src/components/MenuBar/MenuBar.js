@@ -7,8 +7,14 @@ const MenuBar = () => {
   return (
     <Navbar bg="" expand="lg" id="menu">
       <Container>
-        <Navbar.Brand href="#home" id="main-logo">
-          bloodstream
+        <Navbar.Brand id="main-logo">
+          {/* <img
+            src="https://i.ibb.co/Jy7KT5s/main-logo-hand.png"
+            alt=""
+            width="30%"
+            className=""
+          /> */}
+          <Link to="/">bloodstream</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -19,16 +25,16 @@ const MenuBar = () => {
             <Link to="/" className="mx-2 fw-bold">
               About Us
             </Link>
-            <Link to="/" className="mx-2 fw-bold">
+            <Link to="/search-donor" className="mx-2 fw-bold">
               Find Donor
             </Link>
             <Link to="/" className="mx-2 fw-bold">
               Add Blood Request
             </Link>
-            <Link to="/" className="mx-2 fw-bold">
+            <Link to="/register" className="mx-2 fw-bold">
               Register
             </Link>
-            <Link to="/" className="mx-2 fw-bold">
+            <Link to="/login" className="mx-2 fw-bold">
               Login
             </Link>
           </Nav>
