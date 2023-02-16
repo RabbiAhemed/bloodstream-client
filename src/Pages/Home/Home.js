@@ -17,7 +17,7 @@ const Home = () => {
         className="img-fluid"
         src="https://i.ibb.co/6gXGcv4/everydrop.png"
         alt=""
-        srcset=""
+        srcSet=""
       />
       <JoinNow></JoinNow>
       <EligibilityQuestion></EligibilityQuestion>

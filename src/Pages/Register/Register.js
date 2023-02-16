@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Register.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../UserContext/UserContext";
 const Register = () => {
+  const { createUser, displayName, displayPicture } = useContext(AuthContext);
+  // const [success, setSuccess] = useState(false);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    // const picUrl = form.image.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        displayName(name)
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
+        //
+        /*         displayPicture(picUrl)
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          }); */
+        //
+        // user.displayName = name;
+        // setSuccess(true);
+
+        form.reset();
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       <h2 className="text-center mt-5 fw-bold text-black" id="be-a-hero">

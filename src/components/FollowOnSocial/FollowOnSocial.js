@@ -18,7 +18,7 @@ const FollowOnSocial = () => {
         className="w-25 h-25"
         src="https://i.ibb.co/fG6gQHC/qr1676483400998.png"
         alt=""
-        srcset=""
+        srcSet=""
       />
     </div>
   );

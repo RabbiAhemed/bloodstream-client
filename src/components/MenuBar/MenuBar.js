@@ -26,7 +26,7 @@ const MenuBar = () => {
               About Us
             </Link>
             <Link to="/search-donor" className="mx-2 fw-bold">
-              Find Donor
+              Search Donor
             </Link>
             <Link to="/" className="mx-2 fw-bold">
               Add Blood Request

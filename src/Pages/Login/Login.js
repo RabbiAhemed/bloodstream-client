@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../UserContext/UserContext";
 const Login = () => {
+  // const [error, setError] = useState("");
+  const { googleSignIn, signInUser, githubSignIn, setUser } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(result.user);
+        setUser(user);
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error.message));
+  };
+  const handleGoogleSignIn = () => {
+    googleSignIn();
+    navigate(from, { replace: true });
+  };
   return (
     <div className="w-50 mx-auto my-5">
       <h2 className="text-center">Login</h2>
@@ -40,7 +68,7 @@ const Login = () => {
         <h6 className="mt-2">or</h6>
 
         <Button
-          //   onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignIn}
           type="submit"
           variant="warning"
           className="fw-bold p-3"
