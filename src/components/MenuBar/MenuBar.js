@@ -28,7 +28,7 @@ const MenuBar = () => {
             <Link to="/search-donor" className="mx-2 fw-bold">
               Search Donor
             </Link>
-            <Link to="/" className="mx-2 fw-bold">
+            <Link to="/add-blood-request" className="mx-2 fw-bold">
               Add Blood Request
             </Link>
             <Link to="/register" className="mx-2 fw-bold">

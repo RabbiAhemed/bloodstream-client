@@ -5,8 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
 const Login = () => {
   // const [error, setError] = useState("");
-  const { googleSignIn, signInUser, githubSignIn, setUser } =
-    useContext(AuthContext);
+  const { googleSignIn, signInUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -35,7 +34,7 @@ const Login = () => {
     <div className="w-50 mx-auto my-5">
       <h2 className="text-center">Login</h2>
 
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             type="email"
@@ -53,7 +52,7 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit" className="fw-bold">
           Login
         </Button>
         <p className="small fw-bold mt-2 pt-1 mb-0">
@@ -71,7 +70,7 @@ const Login = () => {
           onClick={handleGoogleSignIn}
           type="submit"
           variant="warning"
-          className="fw-bold p-3"
+          className="fw-bold p-2 text-white"
         >
           Sign in with Google
         </Button>

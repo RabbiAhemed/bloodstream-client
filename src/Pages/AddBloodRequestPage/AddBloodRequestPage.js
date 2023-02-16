@@ -1,74 +1,29 @@
-import React, { useContext } from "react";
-import "./Register.css";
-import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../UserContext/UserContext";
-const Register = () => {
-  const { createUser, displayName, displayPicture } = useContext(AuthContext);
-  // const [success, setSuccess] = useState(false);
+import React from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
+
+const AddBloodRequestPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const bloodGroup = form.bloodGroup.value;
     const district = form.district.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    // console.log(name, bloodGroup, district, email, password);
-
-    createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-
-        displayName(name)
-          .then(() => {
-            // Profile updated!
-            // ...
-          })
-          .catch((error) => {
-            // An error occurred
-            // ...
-          });
-        //
-        /*         displayPicture(picUrl)
-          .then(() => {
-            // Profile updated!
-            // ...
-          })
-          .catch((error) => {
-            // An error occurred
-            // ...
-          }); */
-        //
-        // user.displayName = name;
-        // setSuccess(true);
-
-        form.reset();
-      })
-      .catch((error) => console.log(error));
+    const mobileNumber = form.mobileNumber.value;
+    const details = form.details.value;
+    // console.log(name, bloodGroup, district, details, mobileNumber);
+    form.reset();
   };
   return (
     <div>
-      <h2 className="text-center mt-5 fw-bold text-black" id="be-a-hero">
-        be a hero
-      </h2>
+      <h2 className="text-center mt-5 fw-bold text-black">Add Blood Request</h2>
       <Form className="mx-auto w-50 fw-bold" onSubmit={handleSubmit}>
         <label className="text-muted">Name *</label>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Control
-            required
-            type="text"
-            name="name"
-            placeholder="Enter Name"
-          />
+        <Form.Group className="mb-2" controlId="formBasicName">
+          <Form.Control type="text" name="name" placeholder="Enter Name" />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-2">
           <label className="text-muted">Blood Group *</label>
-          <Form.Select
-            required
-            aria-label="Default select example"
-            name="bloodGroup"
-          >
+          <Form.Select aria-label="Default select example" name="bloodGroup">
             <option value=" ">Select</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -80,13 +35,13 @@ const Register = () => {
             <option value="AB-">AB-</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-2">
           <label className="text-muted">District *</label>
           <Form.Select
-            // required
+            //
             aria-label="Default select example"
             name="district"
-            className="mb-3"
+            className="mb-2"
           >
             <option value="">Select</option>
             <option value="Bagerhat">Bagerhat</option>
@@ -154,39 +109,37 @@ const Register = () => {
             <option value="Tangail">Tangail</option>
             <option value="Thakurgaon">Thakurgaon</option>
           </Form.Select>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <label className="text-muted">Email address *</label>
-            <Form.Control
-              required
-              type="email"
-              name="email"
-              placeholder="Enter email"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <label className="text-muted">Password *</label>
-            <Form.Control
-              required
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </Form.Group>
-          <Button variant="danger" type="submit" className="my-4 fw-bold">
-            Register
-          </Button>
-          <p className="small fw-bold mt-2 pt-1 mb-0">
-            Already Registered?
-            <Link to="/login" className="link-success">
-              Login
-            </Link>
-          </p>
         </Form.Group>
+        {/* <Form.Label htmlFor="inputPassword5">Contact No *</Form.Label> */}
+        <Form.Group className="mb-2">
+          <label className="text-muted">Contact No *</label>
+
+          <Form.Control
+            type="number"
+            name="mobileNumber"
+            id="mobileNumber"
+            // aria-describedby="passwordHelpBlock"
+          />
+        </Form.Group>
+        {/* <Form.Label htmlFor="inputPassword5">Details</Form.Label> */}
+        <Form.Group className="mb-2">
+          <label className="text-muted">Details (optional)</label>
+
+          <textarea
+            name="details"
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            rows="5"
+          />
+        </Form.Group>
+        {/* <label htmlFor="exampleFormControlTextarea1">Details</label> */}
+
+        <Button variant="success" type="submit" className="my-4 fw-bold">
+          POST
+        </Button>
       </Form>
     </div>
   );
 };
 
-export default Register;
+export default AddBloodRequestPage;

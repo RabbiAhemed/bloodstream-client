@@ -1,6 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import "./Home.css";
 import EligibilityQuestion from "../../components/EligibilityQuestion/EligibilityQuestion";
 import Faq from "../../components/Faq/Faq";
 import FollowOnSocial from "../../components/FollowOnSocial/FollowOnSocial";

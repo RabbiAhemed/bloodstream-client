@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AddBloodRequestPage from "../Pages/AddBloodRequestPage/AddBloodRequestPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/search-donor",
         element: <SearchDonorPage></SearchDonorPage>,
+      },
+      {
+        path: "/add-blood-request",
+        element: <AddBloodRequestPage></AddBloodRequestPage>,
       },
       {
         path: "/register",

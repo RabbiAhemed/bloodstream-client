@@ -1,24 +1,24 @@
 import React from "react";
-
+import "./FollowOnSocial.css";
 const FollowOnSocial = () => {
   return (
-    <div>
-      <h1>
-        Follow us on
+    <div className="my-5 pt-5">
+      <h2 className="fw-bold text-center my-3 text-danger">
+        FOLLOW US ON
         <a
           href="https://www.facebook.com/bloodstream1"
           target="_blank"
           rel="noopener noreferrer"
           className="ms-3"
         >
-          facebook
+          FACEBOOK
         </a>
-      </h1>
+      </h2>
       <img
-        className="w-25 h-25"
+        // className="w-25 h-25 text-center"
         src="https://i.ibb.co/fG6gQHC/qr1676483400998.png"
         alt=""
-        srcSet=""
+        id="qr-code-image"
       />
     </div>
   );
