@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 
 const Faq = () => {
-  const [questions, setQuestions] = useState();
+  const [data, setData] = useState();
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=4&category=9&type=multiple")
+    fetch("https://mocki.io/v1/7a19255d-8f78-45a5-b41b-0ffcdfb0ad60")
       .then((response) => response.json())
-      .then((data) => setQuestions(data.results));
+      .then((result) => setData(result));
   }, []);
   return (
     <div className="my-5 pt-5">
@@ -15,13 +15,13 @@ const Faq = () => {
       </h2>
 
       <Accordion className="w-75 mx-auto">
-        {questions?.map((q, i) => (
+        {data?.map((q, i) => (
           // <p>{q.question}</p>
           <Accordion.Item eventKey={i} key={i}>
             <Accordion.Header className="fw-bold">
               {q.question}
             </Accordion.Header>
-            <Accordion.Body>{q.correct_answer}</Accordion.Body>
+            <Accordion.Body>{q.answer}</Accordion.Body>
           </Accordion.Item>
         ))}
       </Accordion>

@@ -6,7 +6,7 @@ const EligibilityQuestion = () => {
   return (
     <div className="mx-5 text-center">
       <h3 className="fw-bold text-danger">AM I ELIGIBLE TO DONATE BLOOD?</h3>
-      <Link>
+      <Link to="/eligibility-test">
         <Button variant="danger" className="fw-bold my-2">
           TAKE THE TEST
         </Button>
