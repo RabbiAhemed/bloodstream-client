@@ -14,7 +14,7 @@ const Home = () => {
       <SearchDonor></SearchDonor>
       <img
         className="img-fluid"
-        src="https://i.ibb.co/6gXGcv4/everydrop.png"
+        src="https://i.ibb.co/TRTcpxQ/every-drop-nobg.png"
         alt=""
         srcSet=""
       />

@@ -1,0 +1,16 @@
+#accordion {
+  box-shadow: 15px 15px 8px #dcdcdc;
+}
+@media only screen and (max-width: 426px) and (min-width: 377px) {
+  #faq-header {
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  #faq-header {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+}

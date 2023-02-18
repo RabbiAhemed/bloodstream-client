@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Faq.css";
 import { Accordion } from "react-bootstrap";
 
 const Faq = () => {
@@ -10,11 +11,11 @@ const Faq = () => {
   }, []);
   return (
     <div className="my-5 pt-5">
-      <h2 className="fw-bold text-center my-3 text-danger">
+      <h2 className="fw-bold text-center my-3 text-danger" id="faq-header">
         FREQUENTLY ASKED QUESTIONS
       </h2>
 
-      <Accordion className="w-75 mx-auto">
+      <Accordion className="w-75 mx-auto" id="accordion">
         {data?.map((q, i) => (
           // <p>{q.question}</p>
           <Accordion.Item eventKey={i} key={i}>

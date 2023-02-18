@@ -38,7 +38,7 @@ const EligibilityTest = () => {
   const firstQuestion = (
     <div>
       <h3 className="py-5 fw-bold">
-        Are you 18-75 years and old Weigh at least 50 kg?
+        Are you between 18 to 75 years old and Weigh at least 50 kg?
       </h3>
       <Button
         className="px-4 mx-4 fw-bold"

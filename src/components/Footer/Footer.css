@@ -2,3 +2,13 @@
   /* background-image: url("https://i.ibb.co/3z9sTxL/footer-bg.png"); */
   /* background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png"); */
 }
+#footer-name {
+  font-family: "Comfortaa", cursive;
+  color: red;
+  font-size: 2em;
+  font-weight: bold;
+}
+#footer-slogan {
+  font-style: italic;
+  font-size: 1.1em;
+}

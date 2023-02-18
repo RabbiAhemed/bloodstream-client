@@ -1,16 +1,18 @@
 import React from "react";
+import "./JoinNow.css";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const JoinNow = () => {
   return (
-    <Container className="mx-auto w-75 my-5">
+    <Container className="mx-auto w-75 my-5" id="join-now-container">
       <Row>
         <Col xs={12} md={4}>
           <img
             src="https://i.ibb.co/1M5Y2xr/hero-removebg-preview-1.png"
             alt="hero"
             border="0"
+            width="75%"
             className="img-fluid"
           />
         </Col>
