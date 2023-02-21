@@ -1,3 +1,8 @@
+#join-now-container {
+  /* box-shadow: 15px 15px 8px #dcdcdc; */
+  /* background-color: yellow; */
+}
+
 @media only screen and (min-width: 768px) {
   #join-now-container {
     padding-top: 15%;

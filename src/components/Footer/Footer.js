@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <div id="footer" className="mt-5 py-5">
+    <div id="c" className="mt-5 py-5">
       {/* <img
         className="img-fluid"
         src="https://i.ibb.co/3z9sTxL/footer-bg.png"

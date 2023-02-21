@@ -12,6 +12,10 @@
   text-decoration: none;
   color: red;
 }
+#menu a:hover {
+  transform: scale(1.1);
+  font-weight: 1000;
+}
 #right-links a {
   text-decoration: none;
   color: red;

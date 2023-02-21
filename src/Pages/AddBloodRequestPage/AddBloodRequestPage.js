@@ -110,18 +110,11 @@ const AddBloodRequestPage = () => {
             <option value="Thakurgaon">Thakurgaon</option>
           </Form.Select>
         </Form.Group>
-        {/* <Form.Label htmlFor="inputPassword5">Contact No *</Form.Label> */}
         <Form.Group className="mb-2">
           <label className="text-muted">Contact No *</label>
 
-          <Form.Control
-            type="number"
-            name="mobileNumber"
-            id="mobileNumber"
-            // aria-describedby="passwordHelpBlock"
-          />
+          <Form.Control type="number" name="mobileNumber" id="mobileNumber" />
         </Form.Group>
-        {/* <Form.Label htmlFor="inputPassword5">Details</Form.Label> */}
         <Form.Group className="mb-2">
           <label className="text-muted">Details (optional)</label>
 
@@ -132,7 +125,6 @@ const AddBloodRequestPage = () => {
             rows="5"
           />
         </Form.Group>
-        {/* <label htmlFor="exampleFormControlTextarea1">Details</label> */}
 
         <Button variant="success" type="submit" className="my-4 fw-bold">
           POST

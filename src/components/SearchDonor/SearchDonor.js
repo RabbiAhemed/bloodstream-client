@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import SearchResult from "../SearchResult/SearchResult";
 
 const SearchDonor = () => {
+  const [primaryArray, setPrimaryArray] = useState();
+  const [filteredArray, setFilteredArray] = useState();
+
+  useEffect(() => {
+    fetch("https://mocki.io/v1/0fe87ff5-90e6-45b2-8f02-d46c21b5277f")
+      .then((res) => res.json())
+      .then((data) => setPrimaryArray(data));
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const bloodGroup = form.bloodGroup.value;
-    const district = form.district.value;
-    console.log(bloodGroup, district);
+    const donorBloodGroup = form.bloodGroup.value;
+    const donorDistrict = form.district.value;
+
+    // setVisible(true);
+    const filteredResult = primaryArray.filter((data) => {
+      return (
+        data.district === donorDistrict && data.blood_group === donorBloodGroup
+      );
+    });
+    setFilteredArray(filteredResult);
+
     form.reset();
   };
+
   return (
     <div className="my-5">
       <h3 className="fw-bold text-center text-danger">Search Donors</h3>
@@ -110,6 +128,11 @@ const SearchDonor = () => {
           </Button>
         </Form.Group>
       </Form>
+      {filteredArray?.length > 0 &&
+        filteredArray.map((donor) => (
+          <SearchResult donor={donor} key={donor.id}></SearchResult>
+        ))}
+      {filteredArray?.length < 1 && <h1>No Donors Found</h1>}
     </div>
   );
 };
