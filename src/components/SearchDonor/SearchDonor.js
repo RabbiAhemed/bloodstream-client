@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import SearchResult from "../SearchResult/SearchResult";
-
+import "./SearchDonor.css";
 const SearchDonor = () => {
   const [primaryArray, setPrimaryArray] = useState();
   const [filteredArray, setFilteredArray] = useState();
+  const [selectedDistrict, setSelectedDistrict] = useState();
+  const [selectedGroup, setSelectedGroup] = useState();
 
   useEffect(() => {
-    fetch("https://mocki.io/v1/0fe87ff5-90e6-45b2-8f02-d46c21b5277f")
+    // fetch("https://mocki.io/v1/0fe87ff5-90e6-45b2-8f02-d46c21b5277f")
+    // fetch("https://mocki.io/v1/a486d695-e008-4335-9d54-00aedff41b78") 10 from dhaka a+
+    fetch("https://mocki.io/v1/c63bf8c1-aae9-439d-9ceb-29311fde8f2b")
       .then((res) => res.json())
       .then((data) => setPrimaryArray(data));
   }, []);
@@ -16,6 +20,8 @@ const SearchDonor = () => {
     const form = event.target;
     const donorBloodGroup = form.bloodGroup.value;
     const donorDistrict = form.district.value;
+    setSelectedDistrict(donorDistrict);
+    setSelectedGroup(donorBloodGroup);
 
     // setVisible(true);
     const filteredResult = primaryArray.filter((data) => {
@@ -30,8 +36,14 @@ const SearchDonor = () => {
 
   return (
     <div className="my-5">
-      <h3 className="fw-bold text-center text-danger">Search Donors</h3>
-      <Form className="mx-auto w-50 fw-bold" onSubmit={handleSubmit}>
+      <h2 className="fw-bold text-center text-danger" id="search-donors-title">
+        Search Donors
+      </h2>
+      <Form
+        className="mx-auto w-50 fw-bold"
+        onSubmit={handleSubmit}
+        id="donor-search-form"
+      >
         <Form.Group className="mb-3">
           <label className="text-muted">Blood Group</label>
           <Form.Select
@@ -128,11 +140,37 @@ const SearchDonor = () => {
           </Button>
         </Form.Group>
       </Form>
-      {filteredArray?.length > 0 &&
-        filteredArray.map((donor) => (
-          <SearchResult donor={donor} key={donor.id}></SearchResult>
-        ))}
-      {filteredArray?.length < 1 && <h1>No Donors Found</h1>}
+      {/* show number of available donor found */}
+      {filteredArray?.length === 1 && (
+        <h1 className="fw-bold text-center search-result-message">
+          Found <span className="">{filteredArray?.length}</span>
+          {""}
+          <span className="ms-3">{selectedGroup}</span> Donor in
+          <span className="ms-2">{selectedDistrict}</span>
+        </h1>
+      )}
+      {filteredArray?.length > 1 && (
+        <h1 className="fw-bold text-center search-result-message">
+          Found <span className="">{filteredArray?.length}</span>{" "}
+          <span className="me-2">{selectedGroup}</span>
+          Donors in
+          <span className="ms-2">{selectedDistrict}</span>
+        </h1>
+      )}
+      {/* if at least one donor available */}
+      <div className="donor-cards-container">
+        {filteredArray?.length > 0 &&
+          filteredArray.map((donor) => (
+            <SearchResult donor={donor} key={donor.id}></SearchResult>
+          ))}
+      </div>
+      {/* if no available donor is found */}
+      {filteredArray?.length < 1 && (
+        <h1 className="fw-bold text-center text-danger search-result-message">
+          No <span className="colored-span">{selectedGroup}</span> Donor Found
+          in <span className="">{selectedDistrict}</span>
+        </h1>
+      )}
     </div>
   );
 };

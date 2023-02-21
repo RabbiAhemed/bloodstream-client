@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
-
+import "./AddBloodRequestPage.css";
 const AddBloodRequestPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,8 +15,17 @@ const AddBloodRequestPage = () => {
   };
   return (
     <div>
-      <h2 className="text-center mt-5 fw-bold text-black">Add Blood Request</h2>
-      <Form className="mx-auto w-50 fw-bold" onSubmit={handleSubmit}>
+      <h2
+        className="text-center mt-5 fw-bold text-black"
+        id="add-blood-request-header"
+      >
+        ADD BLOOD REQUEST
+      </h2>
+      <Form
+        className="mx-auto w-50 fw-bold"
+        id="blood-request-form"
+        onSubmit={handleSubmit}
+      >
         <label className="text-muted">Name *</label>
         <Form.Group className="mb-2" controlId="formBasicName">
           <Form.Control type="text" name="name" placeholder="Enter Name" />

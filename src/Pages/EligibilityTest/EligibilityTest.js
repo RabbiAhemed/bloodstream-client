@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { Button, Container } from "react-bootstrap";
+import "./EligibilityTest.css";
 
 const EligibilityTest = () => {
   const congratulationMessage = (
     <div>
-      <h1 className="fw-bold text-success my-3">
+      <h1 className="fw-bold text-success my-3 eligibility-test-font">
         Congratulations! You should be able to give blood.
       </h1>
-      <h4>
+      <h4 className="eligibility-test-font">
         There are some other eligibility criteria, but things are looking super
         promising. We can't wait to hear about your next blood donation.
       </h4>
       <Button
         variant="info"
         onClick={() => setContent(firstQuestion)}
-        className="fw-bold mt-3 text-white"
+        className="fw-bold mt-3 text-white eligibility-test-font"
       >
         Take The Test Again
       </Button>
@@ -22,14 +23,16 @@ const EligibilityTest = () => {
   );
   const negativeMessage = (
     <div>
-      <h1 className="text-danger fw-bold my-3">
+      <h1 className="text-danger fw-bold my-3 eligibility-test-font">
         We discourage you to donate blood at this moment.
       </h1>
-      <h4>Please consult a doctor for furthermore details.</h4>
+      <h4 className="eligibility-test-font">
+        Please consult a doctor for furthermore details.
+      </h4>
       <Button
         variant="info"
         onClick={() => setContent(firstQuestion)}
-        className="fw-bold mt-3 text-white"
+        className="fw-bold mt-3 text-white eligibility-test-font"
       >
         Test Again
       </Button>
@@ -37,18 +40,18 @@ const EligibilityTest = () => {
   );
   const firstQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Are you between 18 to 75 years old and Weigh at least 50 kg?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q1Yesfunction()}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q1Nofunction("declined")}
       >
@@ -59,18 +62,18 @@ const EligibilityTest = () => {
   const [content, setContent] = useState(firstQuestion);
   const secondQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Have you ever had a positive test for HIV, hepatitis B or hepatitis C?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q2Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q2Yesfunction()}
       >
@@ -80,18 +83,18 @@ const EligibilityTest = () => {
   );
   const thirdQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Are you pregnant or recently given birth?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q3Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q3Yesfunction()}
       >
@@ -101,18 +104,18 @@ const EligibilityTest = () => {
   );
   const fourthQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Have you had any blood transfusions in the last 12 months?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q4Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q4Yesfunction()}
       >
@@ -122,16 +125,18 @@ const EligibilityTest = () => {
   );
   const fifthQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">Are you low in iron?</h3>
+      <h3 className="py-5 fw-bold eligibility-test-font">
+        Are you low in iron?
+      </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q5Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q5Yesfunction()}
       >
@@ -141,19 +146,19 @@ const EligibilityTest = () => {
   );
   const sixthQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Have you donated blood or been treated for Malaria in the past three
         month?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q6Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q6Yesfunction()}
       >
@@ -163,18 +168,18 @@ const EligibilityTest = () => {
   );
   const seventhQuestion = (
     <div>
-      <h3 className="py-5 fw-bold">
+      <h3 className="py-5 fw-bold eligibility-test-font">
         Have you had any tattoos or piercings in the last 12 months?
       </h3>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="success"
         onClick={() => q7Nofunction("declined")}
       >
         Yes
       </Button>
       <Button
-        className="px-4 mx-4 fw-bold"
+        className="px-4 mx-4 fw-bold eligibility-test-font"
         variant="danger"
         onClick={() => q7Yesfunction()}
       >
@@ -189,9 +194,6 @@ const EligibilityTest = () => {
   const q1Nofunction = () => {
     console.log("1Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q2Yesfunction = () => {
     console.log("2Positive");
@@ -200,9 +202,6 @@ const EligibilityTest = () => {
   const q2Nofunction = () => {
     console.log("2Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q3Yesfunction = () => {
     console.log("3Positive");
@@ -211,9 +210,6 @@ const EligibilityTest = () => {
   const q3Nofunction = () => {
     console.log("3Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q4Yesfunction = () => {
     console.log("4Positive");
@@ -222,9 +218,6 @@ const EligibilityTest = () => {
   const q4Nofunction = () => {
     console.log("4Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q5Yesfunction = () => {
     console.log("5Positive");
@@ -233,9 +226,6 @@ const EligibilityTest = () => {
   const q5Nofunction = () => {
     console.log("5Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q6Yesfunction = () => {
     console.log("6Positive");
@@ -244,9 +234,6 @@ const EligibilityTest = () => {
   const q6Nofunction = () => {
     console.log("6Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
   const q7Yesfunction = () => {
     console.log("6Positive");
@@ -255,24 +242,13 @@ const EligibilityTest = () => {
   const q7Nofunction = () => {
     console.log("6Negative");
     setContent(negativeMessage);
-    // console.log(declined);
-    // setDeclined("declined");
-    // console.log(declined);
   };
 
   return (
     <Container>
-      {/* {declined === "not-declined" && (
-        <div className="mx-auto my-5 py-5 text-center">{content}</div>
-      )}
-      {!content &&
-        declined ===
-          "declined"(
-            <div className="mx-auto my-5 py-5 text-center">
-              {negativeMessage}
-            </div>
-          )} */}
-      <div className="mx-auto my-5 py-5 text-center">{content}</div>
+      <div className="mx-auto my-5 py-5 text-center eligibility-test-font">
+        {content}
+      </div>
     </Container>
   );
 };

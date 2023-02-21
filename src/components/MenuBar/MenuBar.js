@@ -22,7 +22,7 @@ const MenuBar = () => {
             <Link to="/" className="mx-2 fw-bold">
               Home
             </Link>
-            <Link to="/" className="mx-2 fw-bold">
+            <Link to="/about-us" className="mx-2 fw-bold">
               About Us
             </Link>
             <Link to="/search-donor" className="mx-2 fw-bold">

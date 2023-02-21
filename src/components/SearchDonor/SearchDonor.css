@@ -1,0 +1,25 @@
+#search-donors-title {
+  font-family: "Exo";
+}
+#donor-search-form {
+  font-family: "Exo";
+}
+.search-result-message {
+  font-family: "Exo";
+}
+
+.donor-cards-container {
+  padding: 5%;
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1%; */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.colored-span {
+  color: red;
+}

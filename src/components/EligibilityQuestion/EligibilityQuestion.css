@@ -2,6 +2,7 @@
   #question {
     font-size: 1.8em;
     font-weight: bold;
+    font-family: "Exo";
   }
   #question-section {
     margin-top: 10%;
@@ -19,11 +20,14 @@
     margin-bottom: 15%;
   }
 }
-
+#take-test-btn {
+  font-family: "Exo";
+}
 @media only screen and (max-width: 426px) and (min-width: 376px) {
   #question {
     font-size: 1.1em;
     font-weight: 700;
+    font-family: "Exo";
   }
   #question-section {
     margin-top: 30%;
@@ -37,6 +41,7 @@
     padding-right: 4%;
     border-radius: 2%;
     box-shadow: 15px 15px 8px #dcdcdc;
+    font-family: "Exo";
   }
 }
 @media only screen and (max-width: 376px) {
@@ -44,6 +49,7 @@
     font-size: 1.1em;
     font-weight: 700;
     /* margin-bottom: 5%; */
+    font-family: "Exo";
   }
   #question-section {
     background-color: white;
@@ -57,5 +63,6 @@
     border-radius: 2%;
     box-shadow: 15px 15px 8px #dcdcdc;
     margin-top: 30%;
+    font-family: "Exo";
   }
 }

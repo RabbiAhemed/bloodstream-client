@@ -3,7 +3,7 @@ import "./FollowOnSocial.css";
 const FollowOnSocial = () => {
   return (
     <div className="my-5 pt-5">
-      <h2 className="fw-bold text-center my-3 text-danger">
+      <h2 className="fw-bold text-center my-3 text-danger" id="follow-us-title">
         FOLLOW US ON
         <a
           href="https://www.facebook.com/bloodstream1"

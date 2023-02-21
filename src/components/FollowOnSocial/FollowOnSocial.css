@@ -1,3 +1,9 @@
+#follow-us-title {
+  font-family: "Exo";
+}
+#follow-us-title a {
+  text-decoration: none;
+}
 #qr-code-image {
   display: block;
   margin-left: auto;

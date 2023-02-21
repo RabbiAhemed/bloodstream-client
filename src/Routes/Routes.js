@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBloodRequestPage from "../Pages/AddBloodRequestPage/AddBloodRequestPage";
 import EligibilityTest from "../Pages/EligibilityTest/EligibilityTest";
 import Home from "../Pages/Home/Home";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs></AboutUs>,
       },
     ],
   },

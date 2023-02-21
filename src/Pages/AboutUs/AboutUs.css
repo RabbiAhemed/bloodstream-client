@@ -1,0 +1,11 @@
+#about-us-header {
+  font-family: "Exo";
+  text-align: center;
+}
+#about-us-details {
+  /* padding: 10px, 50px, 10px, 50px; */
+  justify-content: center;
+}
+#about-us-details p {
+  text-align: justify;
+}

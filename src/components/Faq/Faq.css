@@ -1,10 +1,15 @@
 #accordion {
   box-shadow: 15px 15px 8px #dcdcdc;
+  font-family: "Exo";
+}
+#faq-header {
+  font-family: "Exo";
 }
 @media only screen and (max-width: 426px) and (min-width: 377px) {
   #faq-header {
     font-size: 1.4em;
     font-weight: 700;
+    font-family: "Exo";
   }
 }
 
@@ -12,5 +17,6 @@
   #faq-header {
     font-size: 1.2em;
     font-weight: 700;
+    font-family: "Exo";
   }
 }

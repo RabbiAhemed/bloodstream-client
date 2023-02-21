@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
+import "./Login.css";
 const Login = () => {
   // const [error, setError] = useState("");
   const { googleSignIn, signInUser, setUser } = useContext(AuthContext);
@@ -32,9 +33,11 @@ const Login = () => {
   };
   return (
     <div className="w-50 mx-auto my-5">
-      <h2 className="text-center">Login</h2>
+      <h2 className="text-center fw-bold text-success" id="login-header">
+        LOGIN TO BLOODSTREAM
+      </h2>
 
-      <Form onSubmit={handleSubmit}>
+      <Form id="login-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
             type="email"
@@ -64,13 +67,16 @@ const Login = () => {
       </Form>
 
       <div>
-        <h6 className="mt-2">or</h6>
+        <h6 className="mt-2 fw-bold" id="or-text">
+          or
+        </h6>
 
         <Button
           onClick={handleGoogleSignIn}
           type="submit"
-          variant="warning"
+          variant="info"
           className="fw-bold p-2 text-white"
+          id="google-sign-in-btn"
         >
           Sign in with Google
         </Button>

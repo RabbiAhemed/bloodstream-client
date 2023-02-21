@@ -4,7 +4,8 @@
 }
 #footer-name {
   font-family: "Comfortaa", cursive;
-  color: red;
+  /* color: red; */
+  color: #dc3545;
   font-size: 2em;
   font-weight: bold;
 }

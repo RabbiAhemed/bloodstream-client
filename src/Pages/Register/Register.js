@@ -49,10 +49,14 @@ const Register = () => {
   };
   return (
     <div>
-      <h2 className="text-center mt-5 fw-bold text-black" id="be-a-hero">
-        be a hero
+      <h2 className="text-center mt-5 fw-bold text-danger" id="be-a-hero">
+        DONOR REGISTRATION FORM
       </h2>
-      <Form className="mx-auto w-50 fw-bold" onSubmit={handleSubmit}>
+      <Form
+        className="mx-auto w-50 fw-bold"
+        id="registration-form"
+        onSubmit={handleSubmit}
+      >
         <label className="text-muted">Name *</label>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Control
