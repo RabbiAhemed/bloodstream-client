@@ -14,6 +14,10 @@ const Register = () => {
     const district = form.district.value;
     const email = form.email.value;
     const password = form.password.value;
+    const User_image = form.image.files[0];
+    const formData = new FormData();
+    formData.append("image", User_image);
+
     // console.log(name, bloodGroup, district, email, password);
 
     createUser(email, password)
@@ -177,6 +181,9 @@ const Register = () => {
               name="password"
               placeholder="Password"
             />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <input type="file" id="image" accept="image/" required></input>
           </Form.Group>
           <Button variant="danger" type="submit" className="my-4 fw-bold">
             Register

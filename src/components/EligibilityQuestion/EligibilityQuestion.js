@@ -11,7 +11,8 @@ const EligibilityQuestion = () => {
       </h2>
       <Link to="/eligibility-test">
         <Button variant="danger" className="fw-bold my-2" id="take-test-btn">
-          TAKE THE TEST
+          {/* TAKE THE TEST */}
+          Take The Test
         </Button>
       </Link>
     </div>

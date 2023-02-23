@@ -25,7 +25,7 @@ const JoinNow = () => {
           </h5>
           <Link to="/register">
             <Button variant="danger" className="fw-bold mt-3" id="join-btn">
-              JOIN NOW
+              Join Now
             </Button>
           </Link>
         </Col>

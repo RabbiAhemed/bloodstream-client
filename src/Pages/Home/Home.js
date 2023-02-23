@@ -8,6 +8,8 @@ import JoinNow from "../../components/JoinNow/JoinNow";
 import SearchDonor from "../../components/SearchDonor/SearchDonor";
 
 const Home = () => {
+  // const url = `${process.env.REACT_APP_API_URL}`;
+  // console.log(url);
   return (
     <div>
       <HeroSection></HeroSection>

@@ -5,7 +5,7 @@ import { Accordion } from "react-bootstrap";
 const Faq = () => {
   const [data, setData] = useState();
   useEffect(() => {
-    fetch("https://mocki.io/v1/7a19255d-8f78-45a5-b41b-0ffcdfb0ad60")
+    fetch(`${process.env.REACT_APP_FAQ_URL}`)
       .then((response) => response.json())
       .then((result) => setData(result));
   }, []);

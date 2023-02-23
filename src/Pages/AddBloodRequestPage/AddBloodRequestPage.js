@@ -136,7 +136,7 @@ const AddBloodRequestPage = () => {
         </Form.Group>
 
         <Button variant="success" type="submit" className="my-4 fw-bold">
-          POST
+          Post
         </Button>
       </Form>
     </div>

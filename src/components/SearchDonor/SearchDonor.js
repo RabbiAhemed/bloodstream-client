@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import SearchResult from "../SearchResult/SearchResult";
+
 import "./SearchDonor.css";
 const SearchDonor = () => {
   const [primaryArray, setPrimaryArray] = useState();
@@ -9,9 +10,7 @@ const SearchDonor = () => {
   const [selectedGroup, setSelectedGroup] = useState();
 
   useEffect(() => {
-    // fetch("https://mocki.io/v1/0fe87ff5-90e6-45b2-8f02-d46c21b5277f")
-    // fetch("https://mocki.io/v1/a486d695-e008-4335-9d54-00aedff41b78") 10 from dhaka a+
-    fetch("https://mocki.io/v1/c63bf8c1-aae9-439d-9ceb-29311fde8f2b")
+    fetch(`${process.env.REACT_APP_API_URL}/donors`)
       .then((res) => res.json())
       .then((data) => setPrimaryArray(data));
   }, []);
@@ -37,7 +36,8 @@ const SearchDonor = () => {
   return (
     <div className="my-5">
       <h2 className="fw-bold text-center text-danger" id="search-donors-title">
-        Search Donors
+        {/* Search Donors */}
+        SEARCH DONORS
       </h2>
       <Form
         className="mx-auto w-50 fw-bold"
@@ -140,9 +140,9 @@ const SearchDonor = () => {
           </Button>
         </Form.Group>
       </Form>
-      {/* show number of available donor found */}
+      {/* if only one donor available */}
       {filteredArray?.length === 1 && (
-        <h1 className="fw-bold text-center search-result-message">
+        <h1 className="fw-bold text-center search-result-message text-success">
           Found <span className="">{filteredArray?.length}</span>
           {""}
           <span className="ms-3">{selectedGroup}</span> Donor in
@@ -150,7 +150,7 @@ const SearchDonor = () => {
         </h1>
       )}
       {filteredArray?.length > 1 && (
-        <h1 className="fw-bold text-center search-result-message">
+        <h1 className="fw-bold text-center search-result-message text-success">
           Found <span className="">{filteredArray?.length}</span>{" "}
           <span className="me-2">{selectedGroup}</span>
           Donors in
