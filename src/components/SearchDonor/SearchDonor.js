@@ -40,7 +40,7 @@ const SearchDonor = () => {
         SEARCH DONORS
       </h2>
       <Form
-        className="mx-auto w-50 fw-bold"
+        className="mx-auto w-75 fw-bold"
         onSubmit={handleSubmit}
         id="donor-search-form"
       >

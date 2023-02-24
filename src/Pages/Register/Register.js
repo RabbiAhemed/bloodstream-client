@@ -3,7 +3,9 @@ import "./Register.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
+import useTitle from "../../hooks/useTitle";
 const Register = () => {
+  useTitle("Register - Bloodstream");
   const { createUser, displayName, displayPicture } = useContext(AuthContext);
   // const [success, setSuccess] = useState(false);
   const handleSubmit = (event) => {

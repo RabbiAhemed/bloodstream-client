@@ -46,7 +46,7 @@
 }
 @media only screen and (max-width: 376px) {
   #question {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 700;
     /* margin-bottom: 5%; */
     font-family: "Exo";

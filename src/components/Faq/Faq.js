@@ -12,7 +12,7 @@ const Faq = () => {
   return (
     <div className="my-5 pt-5">
       <h2 className="fw-bold text-center my-3 text-danger" id="faq-header">
-        FREQUENTLY ASKED QUESTIONS
+        MOST FREQUENTLY ASKED QUESTIONS
       </h2>
 
       <Accordion className="w-75 mx-auto" id="accordion">

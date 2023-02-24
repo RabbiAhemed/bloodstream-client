@@ -1,7 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
 import "./AboutUs.css";
 const AboutUs = () => {
+  useTitle("About Us - Bloodstream");
   return (
     <div>
       <h2 className="text-danger fw-bold mt-5 mb-5" id="about-us-header">

@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../UserContext/UserContext";
 import "./Login.css";
 const Login = () => {
+  useTitle("Login - Bloodstream");
   // const [error, setError] = useState("");
   const { googleSignIn, signInUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();

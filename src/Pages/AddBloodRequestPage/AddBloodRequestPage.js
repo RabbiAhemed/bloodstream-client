@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
 import "./AddBloodRequestPage.css";
 const AddBloodRequestPage = () => {
+  useTitle("Add Blood Request - Bloodstream");
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

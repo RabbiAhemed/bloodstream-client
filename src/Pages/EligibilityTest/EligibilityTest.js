@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Container } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
 import "./EligibilityTest.css";
 
 const EligibilityTest = () => {
+  useTitle("Eligibility Test - Bloodstream");
   const congratulationMessage = (
     <div>
       <h1 className="fw-bold text-success my-3 eligibility-test-font">
@@ -188,59 +190,45 @@ const EligibilityTest = () => {
     </div>
   );
   const q1Yesfunction = () => {
-    console.log("1Positive");
     setContent(secondQuestion);
   };
   const q1Nofunction = () => {
-    console.log("1Negative");
     setContent(negativeMessage);
   };
   const q2Yesfunction = () => {
-    console.log("2Positive");
     setContent(thirdQuestion);
   };
   const q2Nofunction = () => {
-    console.log("2Negative");
     setContent(negativeMessage);
   };
   const q3Yesfunction = () => {
-    console.log("3Positive");
     setContent(fourthQuestion);
   };
   const q3Nofunction = () => {
-    console.log("3Negative");
     setContent(negativeMessage);
   };
   const q4Yesfunction = () => {
-    console.log("4Positive");
     setContent(fifthQuestion);
   };
   const q4Nofunction = () => {
-    console.log("4Negative");
     setContent(negativeMessage);
   };
   const q5Yesfunction = () => {
-    console.log("5Positive");
     setContent(sixthQuestion);
   };
   const q5Nofunction = () => {
-    console.log("5Negative");
     setContent(negativeMessage);
   };
   const q6Yesfunction = () => {
-    console.log("6Positive");
     setContent(seventhQuestion);
   };
   const q6Nofunction = () => {
-    console.log("6Negative");
     setContent(negativeMessage);
   };
   const q7Yesfunction = () => {
-    console.log("6Positive");
     setContent(congratulationMessage);
   };
   const q7Nofunction = () => {
-    console.log("6Negative");
     setContent(negativeMessage);
   };
 

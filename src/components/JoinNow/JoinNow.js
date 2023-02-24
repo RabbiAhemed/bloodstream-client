@@ -13,7 +13,8 @@ const JoinNow = () => {
             alt="hero"
             border="0"
             width="75%"
-            className="img-fluid"
+            className="img-fluid mx-auto text-center"
+            id="hero-img"
           />
         </Col>
         <Col xs={12} md={8}>
@@ -23,7 +24,7 @@ const JoinNow = () => {
           <h5 className="fw-bold mt-3" id="sub-title">
             YOU HAVE THE POWER TO SAVE A LIFE
           </h5>
-          <Link to="/register">
+          <Link to="/register" id="join-link">
             <Button variant="danger" className="fw-bold mt-3" id="join-btn">
               Join Now
             </Button>

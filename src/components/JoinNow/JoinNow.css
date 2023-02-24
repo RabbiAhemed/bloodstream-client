@@ -5,16 +5,25 @@
   justify-content: center;
   /* margin: auto; */
 }
+#hero-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+}
 #title {
   font-family: "Exo";
   /* font-family: "Carter One"; */
   /* font-family: "Sriracha"; */
+  /* font-size: 2em; */
 }
 #sub-title {
   font-family: "Exo";
   color: rgb(246, 89, 142);
 }
-
+#join-link {
+  text-decoration: none;
+}
 #join-btn {
   font-family: "Exo";
   font-weight: bold;
@@ -25,5 +34,27 @@
     padding-top: 15%;
     padding-bottom: 15%;
   }
+  #title {
+    font-size: 2em;
+    font-weight: bolder;
+  }
 }
 /* @media only screen and (max-width: 426px) and (min-width: 376px) {} */
+@media only screen and (max-width: 426px) {
+  #title {
+    font-size: 1.2em;
+    font-weight: bolder;
+    text-align: center;
+    font-weight: bolder;
+  }
+  #sub-title {
+    font-size: 1em;
+    text-align: center;
+    font-weight: bolder;
+  }
+  #join-btn {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

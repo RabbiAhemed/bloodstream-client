@@ -6,10 +6,10 @@ import FollowOnSocial from "../../components/FollowOnSocial/FollowOnSocial";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import JoinNow from "../../components/JoinNow/JoinNow";
 import SearchDonor from "../../components/SearchDonor/SearchDonor";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
-  // const url = `${process.env.REACT_APP_API_URL}`;
-  // console.log(url);
+  useTitle("Home - Bloodstream");
   return (
     <div>
       <HeroSection></HeroSection>

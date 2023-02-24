@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import "./SearchResult.css";
 const SearchResult = ({ donor }) => {
-  console.log(donor);
   return (
     <Card className="donor-card">
       <Card.Img
