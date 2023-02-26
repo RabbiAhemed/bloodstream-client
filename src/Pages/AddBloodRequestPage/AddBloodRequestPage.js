@@ -1,8 +1,15 @@
-import React from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Button, Form } from "react-bootstrap";
 import useTitle from "../../hooks/useTitle";
 import "./AddBloodRequestPage.css";
 const AddBloodRequestPage = () => {
+  const [date, setDate] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+
   useTitle("Add Blood Request - Bloodstream");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,10 +18,40 @@ const AddBloodRequestPage = () => {
     const bloodGroup = form.bloodGroup.value;
     const district = form.district.value;
     const mobileNumber = form.mobileNumber.value;
-    const details = form.details.value;
-    // console.log(name, bloodGroup, district, details, mobileNumber);
+    var requestDetails = form.details.value;
+    const dateNeeded = startDate.toLocaleDateString();
+    if (requestDetails === "") {
+      requestDetails = "No details provided by the requester";
+    }
+    const requestInfo = {
+      name,
+      bloodGroup,
+      district,
+      mobileNumber,
+      requestDetails,
+      dateNeeded,
+    };
+    //
+    // console.log(dateNeeded);
+
+    fetch("http://localhost:5000/requests", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(requestInfo),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result.acknowledged);
+        if (result.acknowledged === true) {
+          toast("Your blood request has been successfully posted");
+        }
+      });
     form.reset();
   };
+  // console.log(startDate.toLocaleDateString());
   return (
     <div>
       <h2
@@ -24,7 +61,7 @@ const AddBloodRequestPage = () => {
         ADD BLOOD REQUEST
       </h2>
       <Form
-        className="mx-auto w-50 fw-bold"
+        className="mx-auto fw-bold"
         id="blood-request-form"
         onSubmit={handleSubmit}
       >
@@ -121,10 +158,32 @@ const AddBloodRequestPage = () => {
             <option value="Thakurgaon">Thakurgaon</option>
           </Form.Select>
         </Form.Group>
+        <Form.Group className="mb-3">
+          <label className="text-muted d-block">When Needed</label>
+          {/* <input
+            type="date"
+            className=""
+            id="add-req-date-input"
+            onChange={(e) => setDate(e.target.value)}
+            minDate={date().toDate()}
+          /> */}
+          <DatePicker
+            id="add-req-date-input"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            minDate={new Date()}
+            placeholderText="Click to select a date"
+          />
+        </Form.Group>
         <Form.Group className="mb-2">
           <label className="text-muted">Contact No *</label>
 
-          <Form.Control type="number" name="mobileNumber" id="mobileNumber" />
+          <Form.Control
+            type="number"
+            name="mobileNumber"
+            id="mobileNumber"
+            placeholder="Mobile Number"
+          />
         </Form.Group>
         <Form.Group className="mb-2">
           <label className="text-muted">Details (optional)</label>
@@ -141,6 +200,18 @@ const AddBloodRequestPage = () => {
           Post
         </Button>
       </Form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

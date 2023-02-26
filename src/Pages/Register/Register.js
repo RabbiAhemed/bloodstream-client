@@ -1,30 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Register.css";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
 import useTitle from "../../hooks/useTitle";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Register = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   useTitle("Register - Bloodstream");
   const { createUser, displayName, displayPicture } = useContext(AuthContext);
-  // const [success, setSuccess] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [date, setDate] = useState();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
-    const bloodGroup = form.bloodGroup.value;
+    const blood_group = form.bloodGroup.value;
     const district = form.district.value;
+    const last_donation_date = date;
     const email = form.email.value;
+    const contact = form.contactNumber.value;
     const password = form.password.value;
     const User_image = form.image.files[0];
     const formData = new FormData();
     formData.append("image", User_image);
 
-    // console.log(name, bloodGroup, district, email, password);
+    // console.log(name, bloodGroup, district, last_donation_date,contact, email, password);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        // console.log(user);
 
         displayName(name)
           .then(() => {
@@ -47,23 +58,82 @@ const Register = () => {
           }); */
         //
         // user.displayName = name;
-        // setSuccess(true);
+        setUserName(name);
+        const url = `https://api.imgbb.com/1/upload?&key=f4c8251254b4702c4a3d0ea187b4ed88`;
+        // const url = `${process.env.REACT_APP_IMGBB_KEY}`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((ImgData) => {
+            if (ImgData.success) {
+              const donorInfo = {
+                name,
+                blood_group,
+                User_image: ImgData.data.url,
+                district,
+                last_donation_date,
+                email,
+                contact,
+                password,
+              };
+              const picUrl = ImgData.data.url;
+              // set display picture
+              displayPicture(picUrl)
+                .then(() => {
+                  // Profile updated!
+                  // ...
+                })
+                .catch((error) => {
+                  // An error occurred
+                  // ...
+                });
+              // fetch
+              fetch("http://localhost:5000/donors", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                  // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+                },
+                body: JSON.stringify(donorInfo),
+              })
+                .then((res) => res.json())
+                .then((result) => {
+                  console.log(result);
+                  // toast.success("product uploaded");
+                });
+            }
+          });
+        setSuccessMessage(true);
 
         form.reset();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setErrorMessage(error.message);
+        alert(error.message);
+      });
   };
+  // console.log(date);
   return (
     <div>
-      <h2 className="text-center mt-5 fw-bold text-danger" id="be-a-hero">
-        DONOR REGISTRATION FORM
-      </h2>
+      {(successMessage && (
+        <h2 className="text-center" id="reg-success-text">
+          Welcome {userName}
+        </h2>
+      )) || (
+        <h2 className="text-center mt-5 fw-bold text-danger" id="be-a-hero">
+          BECOME A DONOR
+        </h2>
+      )}
       <Form
-        className="mx-auto w-50 fw-bold"
+        className="mx-auto fw-bold"
         id="registration-form"
         onSubmit={handleSubmit}
       >
-        <label className="text-muted">Name *</label>
+        <label className="text-muted">
+          Name <span className="text-danger">*</span>
+        </label>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Control
             required
@@ -73,7 +143,9 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <label className="text-muted">Blood Group *</label>
+          <label className="text-muted">
+            Blood Group <span className="text-danger">*</span>
+          </label>
           <Form.Select
             required
             aria-label="Default select example"
@@ -91,7 +163,9 @@ const Register = () => {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3">
-          <label className="text-muted">District *</label>
+          <label className="text-muted">
+            District <span className="text-danger">*</span>
+          </label>
           <Form.Select
             // required
             aria-label="Default select example"
@@ -164,39 +238,89 @@ const Register = () => {
             <option value="Tangail">Tangail</option>
             <option value="Thakurgaon">Thakurgaon</option>
           </Form.Select>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <label className="text-muted">Email address *</label>
-            <Form.Control
-              required
-              type="email"
-              name="email"
-              placeholder="Enter email"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <label className="text-muted">Password *</label>
-            <Form.Control
-              required
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <input type="file" id="image" accept="image/" required></input>
-          </Form.Group>
-          <Button variant="danger" type="submit" className="my-4 fw-bold">
-            Register
-          </Button>
-          <p className="small fw-bold mt-2 pt-1 mb-0">
-            Already Registered?
-            <Link to="/login" className="link-success">
-              Login
-            </Link>
-          </p>
         </Form.Group>
+        <Form.Group className="mb-3">
+          <label className="text-muted d-block">Last donation date</label>
+          <input
+            type="date"
+            id="last-donation-date-input"
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <label className="text-muted">
+            Email address <span className="text-danger">*</span>
+          </label>
+          <Form.Control
+            required
+            type="email"
+            name="email"
+            placeholder="Enter email"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <label className="text-muted">
+            Contact No <span className="text-danger">*</span>
+          </label>
+          <Form.Control
+            required
+            type="number"
+            name="contactNumber"
+            placeholder="Mobile Number"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <label className="text-muted">
+            Password <span className="text-danger">*</span>
+          </label>
+          <Form.Control
+            required
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <input
+            type="file"
+            id="image"
+            accept="image/"
+            required
+            className="image-input"
+          ></input>
+        </Form.Group>
+
+        {errorMessage === "Firebase: Error (auth/email-already-in-use)." && (
+          <p className="text-danger">This Email is Already Registered</p>
+        )}
+
+        {errorMessage ===
+          "Firebase: Password should be at least 6 characters (auth/weak-password)." && (
+          <p className="text-danger">
+            Password should be at least 6 characters
+          </p>
+        )}
+
+        <Button variant="danger" type="submit" className="my-4 fw-bold d-block">
+          Register
+        </Button>
+        {successMessage && (
+          <small
+            className="text-start text-primary d-block"
+            data-aos="fade-right"
+            // data-aos-once="true"
+          >
+            Registration Completed, Thank you {userName}.
+          </small>
+        )}
+
+        <p className="small fw-bold mt-2 pt-1 mb-0">
+          <span className="me-1">Already Registered?</span>
+          <Link to="/login" className="link-success">
+            Login
+          </Link>
+        </p>
       </Form>
     </div>
   );

@@ -1,13 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./SearchResult.css";
-const SearchResult = ({ donor }) => {
+import "./DonorCard.css";
+const DonorCard = ({ donor }) => {
   return (
     <Card className="donor-card">
-      <Card.Img
-        variant="top"
-        src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg"
-      />
+      <Card.Img variant="top" src={donor.User_image} className="p-2" />
       <Card.Body>
         <h6>
           <span style={{ color: "red" }}>Donor:</span> {donor.name}
@@ -30,4 +27,4 @@ const SearchResult = ({ donor }) => {
   );
 };
 
-export default SearchResult;
+export default DonorCard;

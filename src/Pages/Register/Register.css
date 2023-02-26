@@ -3,3 +3,224 @@
   /* font-family: "comfortaa"; */
   font-family: "Exo";
 }
+#reg-success-text {
+  font-style: italic;
+  color: #16a085;
+}
+@media only screen and (min-width: 2560px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #last-donation-date-input {
+    width: 2045px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 2559px) and (min-width: 1441px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #last-donation-date-input {
+    width: 1215px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #last-donation-date-input {
+    /* display: none; */
+    width: 1150px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #last-donation-date-input {
+    width: 820px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 426px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #be-a-hero {
+    font-size: 1.5em;
+  }
+  #last-donation-date-input {
+    width: 615px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+  .image-input {
+    width: 300px;
+    display: block;
+    /* background-color: #fff; */
+    /* border: 1px solid #ced4da; */
+    border-radius: 0.375rem;
+  }
+}
+
+@media only screen and (max-width: 426px) and (min-width: 376px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #reg-success-text {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  #be-a-hero {
+    font-size: 1.3em;
+  }
+  #last-donation-date-input {
+    width: 340px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+  .image-input {
+    width: 280px;
+    display: block;
+    /* background-color: #fff; */
+    /* border: 1px solid #ced4da; */
+    border-radius: 0.375rem;
+  }
+}
+
+@media only screen and (max-width: 376px) and (min-width: 321px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #reg-success-text {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  #be-a-hero {
+    font-size: 1.25em;
+  }
+  #last-donation-date-input {
+    width: 300px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+  .image-input {
+    width: 200px;
+    display: block;
+    /* background-color: #fff; */
+    /* border: 1px solid #ced4da; */
+    border-radius: 0.375rem;
+  }
+}
+@media only screen and (max-width: 321px) {
+  #registration-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #reg-success-text {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  #be-a-hero {
+    font-size: 1.1em;
+  }
+  #last-donation-date-input {
+    width: 255px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+  .image-input {
+    width: 250px;
+    display: block;
+    /* background-color: #fff; */
+    /* border: 1px solid #ced4da; */
+    border-radius: 0.375rem;
+  }
+}

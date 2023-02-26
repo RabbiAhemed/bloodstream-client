@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./MenuBar.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../UserContext/UserContext";
 
 const MenuBar = () => {
+  const { logOutUser, user } = useContext(AuthContext);
   return (
     <Navbar bg="" expand="lg" id="menu">
       <Container>
@@ -31,12 +33,39 @@ const MenuBar = () => {
             <Link to="/add-blood-request" className="mx-2 fw-bold">
               Add Blood Request
             </Link>
-            <Link to="/register" className="mx-2 fw-bold">
-              Register
-            </Link>
-            <Link to="/login" className="mx-2 fw-bold">
+            {user && user?.uid ? (
+              <Link
+                type="button"
+                onClick={logOutUser}
+                className="fw-bold text-danger mx-2"
+                variant="light"
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link className="mx-2" to="/login">
+                Login
+              </Link>
+            )}
+            {!user && !user?.uid && (
+              <Link className="mx-2" to="/register">
+                Register
+              </Link>
+            )}
+            {/* <Link to="/login" className="mx-2 fw-bold">
               Login
-            </Link>
+            </Link> */}
+            {(user?.photoURL || user?.email) && (
+              // <Link className="left-part mx-2">
+              <img
+                src={user.photoURL}
+                alt="removed-bg"
+                border="0"
+                width="50"
+                className="user-image rounded-circle border border-primary "
+              />
+              // </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

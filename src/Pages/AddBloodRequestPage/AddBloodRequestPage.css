@@ -2,3 +2,160 @@
 #blood-request-form {
   font-family: "Exo";
 }
+@media only screen and (min-width: 2560px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 2045px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 2559px) and (min-width: 1441px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 1215px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 1150px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 819px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 426px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 615px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+
+@media only screen and (max-width: 426px) and (min-width: 376px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #add-req-date-input {
+    width: 340px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+
+@media only screen and (max-width: 376px) and (min-width: 321px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #add-req-date-input {
+    width: 300px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  #blood-request-form {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #add-req-date-input {
+    width: 255px;
+    border: white;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+  }
+}

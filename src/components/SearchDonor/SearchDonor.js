@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import SearchResult from "../SearchResult/SearchResult";
+import DonorCard from "../DonorCard/DonorCard";
 
 import "./SearchDonor.css";
 const SearchDonor = () => {
@@ -161,7 +161,7 @@ const SearchDonor = () => {
       <div className="donor-cards-container">
         {filteredArray?.length > 0 &&
           filteredArray.map((donor) => (
-            <SearchResult donor={donor} key={donor.id}></SearchResult>
+            <DonorCard donor={donor} key={donor._id}></DonorCard>
           ))}
       </div>
       {/* if no available donor is found */}

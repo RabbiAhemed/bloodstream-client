@@ -36,7 +36,14 @@ const UserContext = ({ children }) => {
     localStorage.removeItem("resalezone-token");
     return signOut(auth);
   };
-
+  const displayName = (name) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, { displayName: name });
+  };
+  const displayPicture = (picUrl) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, { photoURL: picUrl });
+  };
   const googleSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
@@ -62,8 +69,9 @@ const UserContext = ({ children }) => {
   const authInfo = {
     user,
     createUser,
+    displayName,
+    displayPicture,
     googleSignIn,
-
     signInUser,
     logOutUser,
     updateUser,
