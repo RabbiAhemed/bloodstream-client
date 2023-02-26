@@ -44,7 +44,6 @@ const AddBloodRequestPage = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.acknowledged);
         if (result.acknowledged === true) {
           toast("Your blood request has been successfully posted");
         }

@@ -7,6 +7,7 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 import JoinNow from "../../components/JoinNow/JoinNow";
 import SearchDonor from "../../components/SearchDonor/SearchDonor";
 import useTitle from "../../hooks/useTitle";
+import BloodRequests from "../../components/BloodRequests/BloodRequests";
 
 const Home = () => {
   useTitle("Home - Bloodstream");
@@ -20,6 +21,7 @@ const Home = () => {
         alt=""
         srcSet=""
       />
+      <BloodRequests></BloodRequests>
       <JoinNow></JoinNow>
       <EligibilityQuestion></EligibilityQuestion>
       <Faq></Faq>

@@ -1,0 +1,30 @@
+#blood-requests-header {
+  font-family: "Exo";
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  #blood-requests-container {
+    padding-top: 5%;
+    /* padding-bottom: 2%; */
+  }
+  #blood-requests-header {
+    font-size: 2em;
+    font-weight: bolder;
+    padding-bottom: 4%;
+  }
+}
+/* @media only screen and (max-width: 426px) and (min-width: 376px) {} */
+@media only screen and (max-width: 426px) {
+  #blood-requests-container {
+    padding-top: 1%;
+    padding-bottom: 10%;
+  }
+  #blood-requests-header {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    font-weight: bolder;
+    padding-bottom: 2%;
+  }
+}
