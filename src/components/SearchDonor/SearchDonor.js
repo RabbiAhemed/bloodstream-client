@@ -140,6 +140,7 @@ const SearchDonor = () => {
           </Button>
         </Form.Group>
       </Form>
+
       {/* if only one donor available */}
       {filteredArray?.length === 1 && (
         <h1 className="fw-bold text-center search-result-message text-success">
@@ -148,6 +149,23 @@ const SearchDonor = () => {
           <span className="ms-3">{selectedGroup}</span> Donor in
           <span className="ms-2">{selectedDistrict}</span>
         </h1>
+      )}
+      {/* warning message */}
+
+      {filteredArray?.length >= 1 && (
+        // <h5 className="fw-bold text-center warning-message text-danger">
+        //   please do not contact any donor who donated blood less than three
+        //   months ago
+        // </h5>
+        <marquee
+          behavior="scroll"
+          direction="left"
+          scrollamount="12"
+          className="text-danger fs-4 fw-bold"
+        >
+          Please do not contact any donor who gave blood within the last three
+          months.
+        </marquee>
       )}
       {filteredArray?.length > 1 && (
         <h1 className="fw-bold text-center search-result-message text-success">
@@ -171,6 +189,7 @@ const SearchDonor = () => {
           in <span className="">{selectedDistrict}</span>
         </h1>
       )}
+      {/* warning message */}
     </div>
   );
 };

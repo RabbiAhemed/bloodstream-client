@@ -18,17 +18,19 @@ const BloodRequestCard = ({ request }) => {
           <span className="text-primary">{district}</span>
         </Card.Header>
         <Card.Body className="fw-bold text-black font-italic">
-          {/* {requestDetails !== "" && (
-            <Card.Title><span className="dc-italian-text">Details:</span> {requestDetails}</Card.Title>
-          )} */}
+          {requestDetails !== "" && (
+            <Card.Title>
+              <span className="dc-italian-text">Details:</span> {requestDetails}
+            </Card.Title>
+          )}
+        </Card.Body>
+        <Card.Footer className="text-muted">
           <Card.Title className="fw-bold text-black">
             <span className="dc-italian-text">Donation date:</span> {dateNeeded}
           </Card.Title>
           <Card.Title className="fw-bold text-black">
             <span className="dc-italian-text">Posted by:</span> {name}
           </Card.Title>
-        </Card.Body>
-        <Card.Footer className="text-muted">
           <Card.Title className="fw-bold text-black">
             <span className="dc-italian-text pt-2">Contact No:</span>{" "}
             {mobileNumber}

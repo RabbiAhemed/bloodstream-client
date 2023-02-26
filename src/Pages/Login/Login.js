@@ -30,7 +30,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(result.user);
+        // console.log(result.user);
         setUser(user);
         setSuccessMessage(true);
         form.reset();

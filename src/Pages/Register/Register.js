@@ -89,8 +89,8 @@ const Register = () => {
                   // An error occurred
                   // ...
                 });
-              // fetch
-              fetch("http://localhost:5000/donors", {
+              //
+              fetch(`${process.env.REACT_APP_API_URL}/donors`, {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -100,7 +100,7 @@ const Register = () => {
               })
                 .then((res) => res.json())
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   // toast.success("product uploaded");
                 });
             }

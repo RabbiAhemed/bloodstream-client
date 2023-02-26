@@ -34,7 +34,7 @@ const AddBloodRequestPage = () => {
     //
     // console.log(dateNeeded);
 
-    fetch("http://localhost:5000/requests", {
+    fetch(`${process.env.REACT_APP_API_URL}/requests`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

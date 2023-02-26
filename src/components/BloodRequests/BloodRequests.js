@@ -6,7 +6,7 @@ const BloodRequests = () => {
   useTitle("About Us - Bloodstream");
   const [requests, setRequests] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/requests")
+    fetch(`${process.env.REACT_APP_API_URL}/requests`)
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, []);
