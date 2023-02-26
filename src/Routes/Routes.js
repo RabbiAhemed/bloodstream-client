@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AddBloodRequestPage from "../Pages/AddBloodRequestPage/AddBloodRequestPage";
+import BloodRequestsPage from "../Pages/BloodRequestsPage/BloodRequestsPage";
 import EligibilityTest from "../Pages/EligibilityTest/EligibilityTest";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -19,12 +20,16 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/search-donor",
+        path: "/search-donors",
         element: <SearchDonorPage></SearchDonorPage>,
       },
       {
         path: "/add-blood-request",
         element: <AddBloodRequestPage></AddBloodRequestPage>,
+      },
+      {
+        path: "/blood-requests",
+        element: <BloodRequestsPage></BloodRequestsPage>,
       },
       {
         path: "/eligibility-test",

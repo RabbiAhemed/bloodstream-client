@@ -27,12 +27,16 @@ const MenuBar = () => {
             <Link to="/about-us" className="mx-2 fw-bold">
               About Us
             </Link>
-            <Link to="/search-donor" className="mx-2 fw-bold">
-              Search Donor
+            <Link to="/search-donors" className="mx-2 fw-bold">
+              Search Donors
+            </Link>
+            <Link to="/blood-requests" className="mx-2 fw-bold">
+              Blood Requests
             </Link>
             <Link to="/add-blood-request" className="mx-2 fw-bold">
               Add Blood Request
             </Link>
+
             {user && user?.uid ? (
               <Link
                 type="button"
@@ -55,8 +59,7 @@ const MenuBar = () => {
             {/* <Link to="/login" className="mx-2 fw-bold">
               Login
             </Link> */}
-            {(user?.photoURL || user?.email) && (
-              // <Link className="left-part mx-2">
+            {/* {(user?.photoURL || user?.email) && (
               <img
                 src={user.photoURL}
                 alt="removed-bg"
@@ -64,8 +67,8 @@ const MenuBar = () => {
                 width="50"
                 className="user-image rounded-circle border border-primary "
               />
-              // </Link>
-            )}
+              
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

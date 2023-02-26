@@ -3,7 +3,7 @@ import SearchDonor from "../../components/SearchDonor/SearchDonor";
 import useTitle from "../../hooks/useTitle";
 
 const SearchDonorPage = () => {
-  useTitle("Search Donor - Bloodstream");
+  useTitle("Search Donors - Bloodstream");
   return (
     <div>
       <SearchDonor></SearchDonor>
