@@ -6,23 +6,28 @@ import { AuthContext } from "../../UserContext/UserContext";
 import useTitle from "../../hooks/useTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import DatePicker from "react-datepicker";
 const Register = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+  const [startDate, setStartDate] = useState(new Date());
   useTitle("Register - Bloodstream");
   const { createUser, displayName, displayPicture } = useContext(AuthContext);
   const [userName, setUserName] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [date, setDate] = useState();
+  const [lastDonationDate, setLastDonationDate] = useState();
+  console.log(lastDonationDate?.toDateString());
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const blood_group = form.bloodGroup.value;
     const district = form.district.value;
-    const last_donation_date = date;
+    // const last_donation_date = date;
+    const last_donation_date = lastDonationDate.toDateString().slice(4);
     const email = form.email.value;
     const contact = form.contactNumber.value;
     const password = form.password.value;
@@ -101,7 +106,7 @@ const Register = () => {
                 .then((res) => res.json())
                 .then((result) => {
                   // console.log(result);
-                  // toast.success("product uploaded");
+                  setErrorMessage("");
                 });
             }
           });
@@ -122,7 +127,11 @@ const Register = () => {
           Welcome {userName}
         </h2>
       )) || (
-        <h2 className="text-center mt-5 fw-bold text-danger" id="be-a-hero">
+        <h2
+          className="text-center mt-5 fw-bold text-danger"
+          id="be-a-hero"
+          data-aos="zoom-in"
+        >
           BECOME A DONOR
         </h2>
       )}
@@ -178,7 +187,7 @@ const Register = () => {
             <option value="Barguna">Barguna</option>
             <option value="Barisal">Barisal</option>
             <option value="Bhola">Bhola</option>
-            <option value="Bogra">Bogra</option>
+            <option value="Bogura">Bogura</option>
             <option value="Brahmanbaria">Brahmanbaria</option>
             <option value="Chandpur">Chandpur</option>
             <option value="Chapainawabganj">Chapainawabganj</option>
@@ -195,7 +204,7 @@ const Register = () => {
             <option value="Gopalganj">Gopalganj</option>
             <option value="Habiganj">Habiganj</option>
             <option value="Jamalpur">Jamalpur</option>
-            <option value="Jessore">Jessore</option>
+            <option value="Jashore">Jashore</option>
             <option value="Jhalokati">Jhalokati</option>
             <option value="Jhenaidah">Jhenaidah</option>
             <option value="Joypurhat">Joypurhat</option>
@@ -240,13 +249,27 @@ const Register = () => {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3">
+          {/* <Form.Label>Date</Form.Label> */}
+          <label className="text-muted d-block">Last donation date</label>
+
+          <DatePicker
+            selected={lastDonationDate}
+            onChange={(date) => setLastDonationDate(date)}
+            // onChange={(e) => setDate(e.target.value)}
+            className="form-control"
+            maxDate={startDate}
+            placeholderText="select a date"
+          />
+        </Form.Group>
+        {/* <Form.Group className="mb-3">
           <label className="text-muted d-block">Last donation date</label>
           <input
             type="date"
             id="last-donation-date-input"
             onChange={(e) => setDate(e.target.value)}
+            // max={moment().format("YYYY-MM-DD")}
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <label className="text-muted">
             Email address <span className="text-danger">*</span>

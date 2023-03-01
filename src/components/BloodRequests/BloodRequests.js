@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useTitle from "../../hooks/useTitle";
+
 import BloodRequestCard from "../BloodRequestCard/BloodRequestCard";
 import "./BloodRequests.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const BloodRequests = () => {
-  // useTitle("About Us - Bloodstream");
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const [requests, setRequests] = useState();
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/requests`)
@@ -16,7 +21,11 @@ const BloodRequests = () => {
     <div className="my-5" id="blood-requests-container">
       {requests?.length && (
         <div>
-          <h2 className="text-center fw-bold mt-5" id="blood-requests-header">
+          <h2
+            className="text-center fw-bold mt-5 text-danger"
+            id="blood-requests-header"
+            data-aos="zoom-in"
+          >
             BLOOD REQUESTS
           </h2>
           {requests?.length &&

@@ -1,4 +1,7 @@
-@media only screen and (min-width: 768px) {
+#take-test-btn {
+  font-family: "Exo";
+}
+@media only screen and (min-width: 769px) {
   #question {
     font-size: 1.8em;
     font-weight: bold;
@@ -17,12 +20,32 @@
     padding-right: 4%;
     border-radius: 2%;
     box-shadow: 15px 15px 8px #dcdcdc;
-    margin-bottom: 15%;
+    margin-bottom: 12%;
   }
 }
-#take-test-btn {
-  font-family: "Exo";
+@media only screen and (max-width: 768px) and (min-width: 427px) {
+  #question {
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: "Exo";
+  }
+  #question-section {
+    margin-top: 10%;
+    background-color: white;
+    /* width: 700px;
+    height: 300px; */
+    margin: auto;
+    max-width: 50%;
+    padding-top: 8%;
+    padding-bottom: 7%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 2%;
+    box-shadow: 15px 15px 8px #dcdcdc;
+    margin-bottom: 12%;
+  }
 }
+
 @media only screen and (max-width: 426px) and (min-width: 376px) {
   #question {
     font-size: 1.1em;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import EligibilityQuestion from "../../components/EligibilityQuestion/EligibilityQuestion";
 import Faq from "../../components/Faq/Faq";

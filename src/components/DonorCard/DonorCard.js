@@ -3,8 +3,13 @@ import { Card } from "react-bootstrap";
 import "./DonorCard.css";
 const DonorCard = ({ donor }) => {
   return (
-    <Card className="donor-card">
-      <Card.Img variant="top" src={donor.User_image} className="p-2" />
+    <Card className="donor-card" border="danger">
+      <Card.Img
+        variant="top"
+        src={donor.User_image}
+        className="p-2"
+        id="donor-image"
+      />
       <Card.Body>
         <h6>
           <span style={{ color: "red" }}>Donor:</span> {donor.name}

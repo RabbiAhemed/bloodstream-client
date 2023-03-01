@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./FollowOnSocial.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const FollowOnSocial = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div className="my-5 pt-5">
-      <h2 className="fw-bold text-center my-3 text-danger" id="follow-us-title">
+      <h2
+        className="fw-bold text-center my-3 text-danger"
+        id="follow-us-title"
+        data-aos="zoom-in"
+      >
         FOLLOW US ON
         <a
           href="https://www.facebook.com/bloodstream1"

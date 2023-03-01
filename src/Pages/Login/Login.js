@@ -7,14 +7,27 @@ import { AuthContext } from "../../UserContext/UserContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Login.css";
+
 const Login = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
   useTitle("Login - Bloodstream");
+
   // const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  //
+  useEffect(() => {
+    setSuccessMessage(
+      JSON.stringify(window.localStorage.getItem("successMessage"))
+    );
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("successMessage", successMessage);
+  }, [successMessage]);
+  //
   const { googleSignIn, signInUser, setUser, user, displayName } =
     useContext(AuthContext);
   const navigate = useNavigate();
@@ -49,12 +62,16 @@ const Login = () => {
   };
   return (
     <div className="mx-auto my-5">
-      {(successMessage && (
+      {(successMessage && user && (
         <h2 className="text-center" id="success-text">
           Welcome {user.displayName} to bloodstream
         </h2>
       )) || (
-        <h2 className="text-center fw-bold text-success" id="login-header">
+        <h2
+          className="text-center fw-bold text-success"
+          id="login-header"
+          data-aos="zoom-in"
+        >
           LOGIN TO BLOODSTREAM
         </h2>
       )}

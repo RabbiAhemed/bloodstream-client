@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import useTitle from "../../hooks/useTitle";
 import "./EligibilityTest.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const EligibilityTest = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   useTitle("Eligibility Test - Bloodstream");
   const congratulationMessage = (
     <div>
-      <h1 className="fw-bold text-success my-3 eligibility-test-font">
-        Congratulations! You should be able to give blood.
+      <h1
+        className="fw-bold text-success my-3 eligibility-test-font"
+        data-aos="zoom-in"
+      >
+        Congratulations! You should be able to donate blood.
       </h1>
       <h4 className="eligibility-test-font">
         There are some other eligibility criteria, but things are looking super
@@ -25,7 +33,10 @@ const EligibilityTest = () => {
   );
   const negativeMessage = (
     <div>
-      <h1 className="text-danger fw-bold my-3 eligibility-test-font">
+      <h1
+        className="text-danger fw-bold my-3 eligibility-test-font"
+        data-aos="zoom-in"
+      >
         We discourage you to donate blood at this moment.
       </h1>
       <h4 className="eligibility-test-font">

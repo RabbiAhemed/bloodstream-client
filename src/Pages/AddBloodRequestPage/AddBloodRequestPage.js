@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,7 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Button, Form } from "react-bootstrap";
 import useTitle from "../../hooks/useTitle";
 import "./AddBloodRequestPage.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const AddBloodRequestPage = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const [date, setDate] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -54,8 +60,9 @@ const AddBloodRequestPage = () => {
   return (
     <div>
       <h2
-        className="text-center mt-5 fw-bold text-black"
+        className="text-center mt-5 fw-bold text-danger"
         id="add-blood-request-header"
+        data-aos="zoom-in"
       >
         ADD BLOOD REQUEST
       </h2>

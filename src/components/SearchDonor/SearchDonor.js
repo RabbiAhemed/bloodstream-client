@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import DonorCard from "../DonorCard/DonorCard";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./SearchDonor.css";
 const SearchDonor = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const [primaryArray, setPrimaryArray] = useState();
   const [filteredArray, setFilteredArray] = useState();
   const [selectedDistrict, setSelectedDistrict] = useState();
@@ -35,7 +39,11 @@ const SearchDonor = () => {
 
   return (
     <div className="my-5">
-      <h2 className="fw-bold text-center text-danger" id="search-donors-title">
+      <h2
+        className="fw-bold text-center text-danger"
+        id="search-donors-title"
+        data-aos="zoom-in"
+      >
         {/* Search Donors */}
         SEARCH DONORS
       </h2>
@@ -65,7 +73,7 @@ const SearchDonor = () => {
         <Form.Group className="mb-3">
           <label className="text-muted">District</label>
           <Form.Select
-            // required
+            required
             aria-label="Default select example"
             name="district"
           >
@@ -75,7 +83,7 @@ const SearchDonor = () => {
             <option value="Barguna">Barguna</option>
             <option value="Barisal">Barisal</option>
             <option value="Bhola">Bhola</option>
-            <option value="Bogra">Bogra</option>
+            <option value="Bogura">Bogura</option>
             <option value="Brahmanbaria">Brahmanbaria</option>
             <option value="Chandpur">Chandpur</option>
             <option value="Chapainawabganj">Chapainawabganj</option>
@@ -92,7 +100,7 @@ const SearchDonor = () => {
             <option value="Gopalganj">Gopalganj</option>
             <option value="Habiganj">Habiganj</option>
             <option value="Jamalpur">Jamalpur</option>
-            <option value="Jessore">Jessore</option>
+            <option value="Jashore">Jashore</option>
             <option value="Jhalokati">Jhalokati</option>
             <option value="Jhenaidah">Jhenaidah</option>
             <option value="Joypurhat">Joypurhat</option>
@@ -157,14 +165,15 @@ const SearchDonor = () => {
         //   please do not contact any donor who donated blood less than three
         //   months ago
         // </h5>
+
         <marquee
           behavior="scroll"
           direction="left"
           scrollamount="12"
           className="text-danger fs-4 fw-bold"
         >
-          Please do not contact any donor who gave blood within the last three
-          months.
+          Please do not contact any donor who donated blood within the last
+          three months.
         </marquee>
       )}
       {filteredArray?.length > 1 && (

@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import useTitle from "../../hooks/useTitle";
 import "./AboutUs.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const AboutUs = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   useTitle("About Us - Bloodstream");
   return (
     <div>
-      <h2 className="text-danger fw-bold mt-5 mb-5" id="about-us-header">
+      <h2
+        className="text-danger fw-bold mt-5 mb-5"
+        id="about-us-header"
+        data-aos="zoom-in"
+      >
         ABOUT US
       </h2>
       <Container id="about-us-details">

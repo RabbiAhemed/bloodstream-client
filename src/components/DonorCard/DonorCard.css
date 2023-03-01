@@ -6,3 +6,7 @@
   margin: 20px;
   box-shadow: 0 0 6px rgb(0 0 0 / 15%);
 }
+#donor-image {
+  max-height: 250px;
+  max-width: 300px;
+}

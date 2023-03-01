@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Faq.css";
 import { Accordion } from "react-bootstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Faq = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const [data, setData] = useState();
   useEffect(() => {
     fetch(`${process.env.REACT_APP_FAQ_URL}`)
@@ -11,7 +16,11 @@ const Faq = () => {
   }, []);
   return (
     <div className="my-5 pt-5">
-      <h2 className="fw-bold text-center my-3 text-danger" id="faq-header">
+      <h2
+        className="fw-bold text-center my-3 text-danger"
+        id="faq-header"
+        data-aos="zoom-in"
+      >
         MOST FREQUENTLY ASKED QUESTIONS
       </h2>
 
