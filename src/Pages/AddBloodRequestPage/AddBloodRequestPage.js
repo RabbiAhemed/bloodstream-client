@@ -15,7 +15,6 @@ const AddBloodRequestPage = () => {
   }, []);
   const [date, setDate] = useState();
   const [startDate, setStartDate] = useState(new Date());
-
   useTitle("Add Blood Request - Bloodstream");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,7 +24,7 @@ const AddBloodRequestPage = () => {
     const district = form.district.value;
     const mobileNumber = form.mobileNumber.value;
     var requestDetails = form.details.value;
-    const dateNeeded = startDate.toLocaleDateString();
+    const dateNeeded = startDate.toDateString().slice(4);
     if (requestDetails === "") {
       requestDetails = "No details provided by the requester";
     }
@@ -71,13 +70,26 @@ const AddBloodRequestPage = () => {
         id="blood-request-form"
         onSubmit={handleSubmit}
       >
-        <label className="text-muted">Name *</label>
+        <label className="text-muted">
+          Name <span className="text-danger"> *</span>
+        </label>
         <Form.Group className="mb-2" controlId="formBasicName">
-          <Form.Control type="text" name="name" placeholder="Enter Name" />
+          <Form.Control
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            required
+          />
         </Form.Group>
         <Form.Group className="mb-2">
-          <label className="text-muted">Blood Group *</label>
-          <Form.Select aria-label="Default select example" name="bloodGroup">
+          <label className="text-muted">
+            Blood Group <span className="text-danger"> *</span>
+          </label>
+          <Form.Select
+            required
+            aria-label="Default select example"
+            name="bloodGroup"
+          >
             <option value=" ">Select</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -90,9 +102,11 @@ const AddBloodRequestPage = () => {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-2">
-          <label className="text-muted">District *</label>
+          <label className="text-muted">
+            District <span className="text-danger"> *</span>
+          </label>
           <Form.Select
-            //
+            required
             aria-label="Default select example"
             name="district"
             className="mb-2"
@@ -165,14 +179,24 @@ const AddBloodRequestPage = () => {
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3">
+          {/* <Form.Label>Date</Form.Label> */}
+          <label className="text-muted d-block">
+            When Needed <span className="text-danger"> *</span>
+          </label>
+
+          <DatePicker
+            required
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            minDate={new Date()}
+            // onChange={(e) => setDate(e.target.value)}
+            className="form-control"
+            // maxDate={startDate}
+            placeholderText="select a date"
+          />
+        </Form.Group>
+        {/* <Form.Group className="mb-3">
           <label className="text-muted d-block">When Needed</label>
-          {/* <input
-            type="date"
-            className=""
-            id="add-req-date-input"
-            onChange={(e) => setDate(e.target.value)}
-            minDate={date().toDate()}
-          /> */}
           <DatePicker
             id="add-req-date-input"
             selected={startDate}
@@ -180,11 +204,14 @@ const AddBloodRequestPage = () => {
             minDate={new Date()}
             placeholderText="Click to select a date"
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group className="mb-2">
-          <label className="text-muted">Contact No *</label>
+          <label className="text-muted">
+            Contact No <span className="text-danger"> *</span>
+          </label>
 
           <Form.Control
+            required
             type="number"
             name="mobileNumber"
             id="mobileNumber"

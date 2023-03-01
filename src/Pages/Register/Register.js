@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Register.css";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
 import useTitle from "../../hooks/useTitle";
@@ -17,8 +17,9 @@ const Register = () => {
   const [userName, setUserName] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
   const [lastDonationDate, setLastDonationDate] = useState();
-  console.log(lastDonationDate?.toDateString());
+  // console.log(lastDonationDate?.toDateString());
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,8 +27,11 @@ const Register = () => {
     const name = form.name.value;
     const blood_group = form.bloodGroup.value;
     const district = form.district.value;
-    // const last_donation_date = date;
-    const last_donation_date = lastDonationDate.toDateString().slice(4);
+    const last_donation_date =
+      lastDonationDate?.toDateString().slice(4) || "Never Donated Before";
+    // if (last_donation_date === "") {
+    //   last_donation_date = "No details provided by the requester";
+    // }
     const email = form.email.value;
     const contact = form.contactNumber.value;
     const password = form.password.value;
@@ -35,12 +39,9 @@ const Register = () => {
     const formData = new FormData();
     formData.append("image", User_image);
 
-    // console.log(name, bloodGroup, district, last_donation_date,contact, email, password);
-
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
 
         displayName(name)
           .then(() => {
@@ -116,10 +117,20 @@ const Register = () => {
       })
       .catch((error) => {
         setErrorMessage(error.message);
-        alert(error.message);
+        if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
+          alert("This email is already registered");
+          // setAlertMessage("This email is already registered");
+        }
+        //
+        else if (
+          errorMessage ===
+          "Firebase: Password should be at least 6 characters (auth/weak-password)."
+        ) {
+          alert("Password should be at least 6 characters");
+          // setAlertMessage("Password should be at least 6 characters");
+        }
       });
   };
-  // console.log(date);
   return (
     <div>
       {(successMessage && (
@@ -314,8 +325,18 @@ const Register = () => {
           ></input>
         </Form.Group>
 
+        <Button variant="danger" type="submit" className="my-4 fw-bold d-block">
+          Register
+        </Button>
+        {/* {alertMessage !== "" && (
+          <Alert variant="info" className="text-center fw-bold">
+            {alertMessage}
+          </Alert>
+        )} */}
         {errorMessage === "Firebase: Error (auth/email-already-in-use)." && (
-          <p className="text-danger">This Email is Already Registered</p>
+          <p className="text-danger" data-aos="zoom-in">
+            This Email is Already Registered
+          </p>
         )}
 
         {errorMessage ===
@@ -324,10 +345,6 @@ const Register = () => {
             Password should be at least 6 characters
           </p>
         )}
-
-        <Button variant="danger" type="submit" className="my-4 fw-bold d-block">
-          Register
-        </Button>
         {successMessage && (
           <small
             className="text-start text-primary d-block"
